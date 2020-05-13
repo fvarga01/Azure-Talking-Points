@@ -52,6 +52,10 @@ The majority of the content is geared for Azure Cloud Solution Architects in the
 2. Azure Functions
 
 ## Infrastructure and Management
+1. Azure Monitor
+   - Metrics
+   - Log Analytics
+2. Azure Automation 
 
 ## Industry - Healthcare
 - [Genomics On Azure](/Genomics%20On%20Azure.md)
