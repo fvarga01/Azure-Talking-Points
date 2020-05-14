@@ -55,7 +55,8 @@ The majority of the content is geared for Azure Cloud Solution Architects in the
 1. Azure Monitor
    - Metrics
    - Log Analytics
-2. Azure Automation 
+2. Azure Automation
+3. [Tools](/Tools.md)
 
 ## Industry - Healthcare
 - [Genomics On Azure](/Genomics-On-Azure.md)
