@@ -37,7 +37,7 @@ The majority of the content is geared for Azure Cloud Solution Architects in the
    - Azure Search
 
 ## Data and Business Process Integration
-1. Azure Data Factory
+1. [Azure Data Factory](/Azure-Data-Factory.md)
 2. [Azure Logic Apps](/Azure-Logic-Apps.md)
 
 ## Analytics and Reporting
