@@ -58,4 +58,4 @@ The majority of the content is geared for Azure Cloud Solution Architects in the
 2. Azure Automation 
 
 ## Industry - Healthcare
-- [Genomics On Azure](/Genomics%20On%20Azure.md)
+- [Genomics On Azure](/Genomics-On-Azure.md)
