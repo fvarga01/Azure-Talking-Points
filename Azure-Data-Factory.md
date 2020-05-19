@@ -49,7 +49,8 @@
     - Joining Data: https://docs.microsoft.com/en-us/azure/data-factory/data-flow-join +  https://www.youtube.com/watch?v=zukwayEXRtg
     - SCD Type 1 with Mapping Data Flows https://www.youtube.com/watch?v=Rz2zx5GRbrA
     - Using Parameters https://docs.microsoft.com/en-us/azure/data-factory/parameters-data-flow +  https://www.youtube.com/watch?v=vpuuQcFojt8
-## Connect to On-Premises 
+
+## Connect to On-Premises
 - https://docs.microsoft.com/en-us/azure/data-factory/concepts-integration-runtime#integration-runtime-types. 
 - Azure Integration Runtime supports connecting to data stores and compute services with public accessible endpoints. 
 - Use a self-hosted integration runtime to connect to on-premises data sources 
@@ -61,5 +62,17 @@
 - Sample Walkthrough:
   - Copy data from an on-premises SQL Server database to Azure Blob storage https://docs.microsoft.com/en-us/azure/data-factory/tutorial-hybrid-copy-portal#create-a-pipeline
   - Steps to create self-hosted IR https://docs.microsoft.com/en-us/azure/data-factory/create-self-hosted-integration-runtime#high-level-steps-for-creating-a-linked-self-hosted-ir
+- Command Channel vs Data Channel https://docs.microsoft.com/en-us/azure/data-factory/data-movement-security-considerations#hybrid-scenarios
+  - The command channel allows communication between data movement services in Data Factory and self-hosted integration runtime. The communication contains information related to the activity.
+  - The data channel is used for transferring data between on-premises data stores and cloud data stores.
+  - Public IP address is used for Command Channel communications (which take place between the SHIR node and ADF)- ADF is not injected into your VNET, so ADF cannot communicate with your SHIR directly through private IP address.
+  - https://docs.microsoft.com/en-us/azure/data-factory/concepts-integration-runtime#self-hosted-ir-network-environment
+    - The self-hosted integration runtime only makes outbound HTTP-based connections to open internet.
 
-
+## Scale out SHIR
+-  https://docs.microsoft.com/en-us/azure/data-factory/create-self-hosted-integration-runtime#scale-out 
+   - Identify and document external dependencies for each connection. For example, do your connections depend on an an ODBC driver, DSN, connection file, host file, registry key, environment variable, etc. 
+   - Install + configure any additional dependencies on your new node
+- https://docs.microsoft.com/en-us/azure/data-factory/create-self-hosted-integration-runtime#high-availability-and-scalability
+  - Can scale up to four SHIR nodes
+  - You don't need to create a new self-hosted integration runtime to associate each node. Instead, you can install the self-hosted integration runtime on another machine and register it by using the same authentication key.
