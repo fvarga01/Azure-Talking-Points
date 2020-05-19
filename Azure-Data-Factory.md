@@ -69,7 +69,7 @@
   - https://docs.microsoft.com/en-us/azure/data-factory/concepts-integration-runtime#self-hosted-ir-network-environment
     - The self-hosted integration runtime only makes outbound HTTP-based connections to open internet.
 
-## Scale out SHIR
+### Scale out Self-Hosted Integration Runtime (SHIR)
 -  https://docs.microsoft.com/en-us/azure/data-factory/create-self-hosted-integration-runtime#scale-out 
    - Identify and document external dependencies for each connection. For example, do your connections depend on an an ODBC driver, DSN, connection file, host file, registry key, environment variable, etc. 
    - Install + configure any additional dependencies on your new node
