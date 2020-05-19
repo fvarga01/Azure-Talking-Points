@@ -15,28 +15,24 @@ $connection = Get-AutomationConnection -Name AzureRunAsConnection
 while(!($connectionResult) -And ($logonAttempt -le 10))
 {
     $LogonAttempt++
-    # Logging in to Azure...
+    # Log on to Azure
     $connectionResult =    Connect-AzAccount `
-                               -ServicePrincipal `
-                               -Tenant $connection.TenantID `
-                               -ApplicationId $connection.ApplicationID `
-                               -CertificateThumbprint $connection.CertificateThumbprint
+        -ServicePrincipal `
+        -Tenant $connection.TenantID `
+        -ApplicationId $connection.ApplicationID `
+        -CertificateThumbprint $connection.CertificateThumbprint
 
     Start-Sleep -Seconds 30
 }
 
-
-
 #command to programmatically pause an azure synapse analytics sql pool (aka sql data warehouse)
 Suspend-AzSqlDatabase -ResourceGroupName "my-rg-name" -ServerName "myservername" -DatabaseName "my-synapsesqldb-name"
-
 
 #command to programmatically start/resume an azure synapse analytics sql pool (aka sql data warehouse)
 Resume-AzSqlDatabase -ResourceGroupName "my-rg-name" -ServerName "myservername" -DatabaseName "my-synapsesqldb-name"
 
 #command to programmatically scale an azure synapse analytics sql pool (aka sql data warehouse)
-Set-AzSqlDatabase -ResourceGroupName "my-rg-name" -ServerName "myservername" -DatabaseName "my-synapsesqldb-name" -RequestedServiceObjectiveName "DW300c"
-
+Set-AzSqlDatabase -ResourceGroupName "my-rg-name" -ServerName "myservername" -DatabaseName "my-synapsesqldb-name" -RequestedServiceObjectiveName "DW1000c"
 ```
 4. Schedule your runbook https://docs.microsoft.com/en-us/azure/automation/shared-resources/schedules#to-create-a-new-schedule-in-the-azure-portal
 
