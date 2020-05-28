@@ -73,6 +73,33 @@
 -  https://docs.microsoft.com/en-us/azure/data-factory/create-self-hosted-integration-runtime#scale-out 
    - Identify and document external dependencies for each connection. For example, do your connections depend on an an ODBC driver, DSN, connection file, host file, registry key, environment variable, etc. 
    - Install + configure any additional dependencies on your new node
+   - Consider placing the SHIR node in an availability set
+   - Before you add another node for high availability and scalability, ensure that the Remote access to intranet option is enabled on the first node. To do so, select Microsoft Integration Runtime Configuration Manager > Settings > Remote access to intranet: https://docs.microsoft.com/en-us/azure/data-factory/create-self-hosted-integration-runtime#high-availability-and-scalability
+
 - https://docs.microsoft.com/en-us/azure/data-factory/create-self-hosted-integration-runtime#high-availability-and-scalability
   - Can scale up to four SHIR nodes
   - You don't need to create a new self-hosted integration runtime to associate each node. Instead, you can install the self-hosted integration runtime on another machine and register it by using the same authentication key.
+- Configure SHIR
+  - The default value of the concurrent jobs limit is set based on the machine size. The factors used to calculate this value depend on the amount of RAM and the number of CPU cores of the machine. So the more cores and the more memory, the higher the default limit of concurrent jobs. 	You can override the calculated default value in the Azure portal. Select Author > Connections > Integration Runtimes > Edit > Nodes > Modify concurrent job value per node.
+  - You can also use the PowerShell update-Azdatafactoryv2integrationruntimenode command.
+From <https://docs.microsoft.com/en-us/azure/data-factory/monitor-integration-runtime#self-hosted-integration-runtime>
+
+### SSIS Integration Runtime
+
+- Overview: https://docs.microsoft.com/en-us/azure/data-factory/concepts-integration-runtime#azure-ssis-integration-runtime
+- Pricing: https://azure.microsoft.com/en-us/pricing/details/data-factory/ssis/
+- Architecture info: https://docs.microsoft.com/en-us/sql/integration-services/lift-shift/ssis-azure-lift-shift-ssis-packages-overview?view=sql-server-2017
+- Edition Info: https://docs.microsoft.com/en-us/sql/integration-services/integration-services-features-supported-by-the-editions-of-sql-server?view=sql-server-2017
+
+
+#### Walkthrough
+- Create ADF + SSIS Integration Runtime: https://docs.microsoft.com/en-us/azure/data-factory/tutorial-deploy-ssis-packages-azure,  https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime
+- Connect SSIS runtime to on-premises environment https://docs.microsoft.com/en-us/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network
+- Use SSMS to connect to the SSIS Catalog (this requires SSISDB in connection string): https://docs.microsoft.com/en-us/sql/integration-services/lift-shift/ssis-azure-connect-to-catalog-database?view=sql-server-2017
+- Deploy an SSIS package through SSDT: https://docs.microsoft.com/en-us/sql/integration-services/packages/deploy-integration-services-ssis-projects-and-packages?view=sql-server-2017#deploy. See section "To deploy a project to the Integration Services Server"
+- Monitor SSIS packages:   https://docs.microsoft.com/en-us/sql/integration-services/lift-shift/ssis-azure-deploy-run-monitor-tutorial?view=sql-server-2017 
+- Run a package: https://docs.microsoft.com/en-us/sql/integration-services/lift-shift/ssis-azure-run-packages?view=sql-server-2017
+- Run an SSIS package with the Execute SSIS Package Activity in Azure Data Factory https://docs.microsoft.com/en-us/azure/data-factory/how-to-invoke-ssis-package-ssis-activity
+- Schedule SSIS Packages: https://docs.microsoft.com/en-us/sql/integration-services/lift-shift/ssis-azure-schedule-packages?view=sql-server-2017
+- Connect to data sources and file shares with Windows Authentication from SSIS packages in Azure  https://docs.microsoft.com/en-us/sql/integration-services/lift-shift/ssis-azure-connect-with-windows-auth?view=sql-server-2017
+Install 3rd party drivers. Customize setup for the Azure-SSIS integration runtime: https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup

@@ -12,7 +12,7 @@ The majority of the content is geared for Azure Cloud Solution Architects in the
 
 
 ## Monthly Microsoft Data and AI News
-- Latest Microsoft Dat and AI newsletter: [April 2020](/Microsoft-Data-and-AI-News/2020/Microsoft-Data-and-AI-News-April-2020.pdf)
+- Latest Microsoft Data and AI newsletter: [April 2020](/Microsoft-Data-and-AI-News/2020/Microsoft-Data-and-AI-News-April-2020.pdf)
 - SQL Server Updated and Lessons Learned - Blog Archives https://docs.microsoft.com/en-us/archive/blogs/sqlupdates/
 
   
@@ -33,7 +33,7 @@ The majority of the content is geared for Azure Cloud Solution Architects in the
    - HBase on HDInsight
    - Azure Storage and Data Lake
 3. Batch and Stream(Event) Processing
-   - Azure Data Factory
+   - [Azure Data Factory](/Azure-Data-Factory.md)
    - Azure Databricks
    - Azure Stream Analytics
    - Azure Functions 
@@ -58,11 +58,10 @@ The majority of the content is geared for Azure Cloud Solution Architects in the
 2. Azure Functions
 
 ## Infrastructure and Management
-1. Azure Monitor
-   - Metrics
-   - Log Analytics
-2. Azure Automation
-3. [Tools](/Tools.md)
+1. [Azure Governance](/Azure-Governance.md)
+2. [Azure Monitor](/Azure-Monitor.md)
+1. [Tools](/Tools.md)
 
 ## Industry - Healthcare
 - [Genomics On Azure](/Genomics-On-Azure.md)
+- [Microsoft Cloud for Healthcare](/Microsoft-Cloud-For-Healthcare.md)

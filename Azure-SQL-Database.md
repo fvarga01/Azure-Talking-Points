@@ -69,3 +69,27 @@ b.	Storage Costs https://docs.microsoft.com/en-us/azure/sql-database/sql-databas
 
 
 
+### Monitoring
+- Azure Metrics Dashboard (pin to dashboard)  https://docs.microsoft.com/en-us/azure/sql-database/sql-database-monitor-tune-overview#sql-database-resource-monitoring
+- SQL Log Analytics – Stream Diagnostic Logs to Log Analytics for centralized long term monitoring https://docs.microsoft.com/en-us/azure/sql-database/sql-database-metrics-diag-logging?tabs=azure-portal
+  - SQL Log Analytics/Intelligent Insights - SQL Analytics
+https://docs.microsoft.com/en-us/azure/azure-monitor/insights/azure-sql 
+  - https://docs.microsoft.com/en-us/azure/sql-database/sql-database-intelligent-insights
+  - https://docs.microsoft.com/en-us/azure/sql-database/sql-database-intelligent-insights-troubleshoot-performance
+- Query Performance Insights https://docs.microsoft.com/en-us/azure/sql-database/sql-database-query-performance
+- Query Store (you can access through SSMS, Azure Portal – Query Performance Insights, DMV’s) provides intelligent query analysis https://docs.microsoft.com/en-us/azure/sql-database/sql-database-query-performance
+- [Extended Events](https://docs.microsoft.com/en-us/azure/azure-sql/database/xevent-db-diff-from-svr)  + [DMVs](https://docs.microsoft.com/en-us/azure/azure-sql/database/monitoring-with-dmvs) for troubleshooting
+
+### Tuning
+- Query Tuning Guidance https://docs.microsoft.com/en-us/azure/sql-database/sql-database-monitor-tune-overview
+- Consider using columnstore indexing for your larger analytics tables, non-clustered columnstore indexes are available for HTAP tables: https://docs.microsoft.com/en-us/sql/relational-databases/indexes/columnstore-indexes-design-guidance?view=sql-server-ver15#choose-the-best-columnstore-index-for-your-needs
+- Automatic tuning https://docs.microsoft.com/en-us/azure/sql-database/sql-database-automatic-tuning
+- Database Advisor Performance Recommendations https://docs.microsoft.com/en-us/azure/sql-database/sql-database-advisor
+- Update Statistics/Defragment/Re-index https://techcommunity.microsoft.com/t5/azure-database-support-blog/how-to-maintain-azure-sql-indexes-and-statistics/ba-p/368787
+  - Update Statistics https://docs.microsoft.com/en-us/sql/relational-databases/statistics/update-statistics?view=sql-server-ver15
+  - Rebuild Indexes https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-index-transact-sql?view=sql-server-ver15#rebuilding-indexes
+- Database Compatibility Level 15
+  - Memory Grant Feedback - SQL 2019 new feature applied to Azure SQL DB
+  - SQL Server 2019 includes built-in query processing capabilities called Intelligent Query Processing. By updating your database compatibility level to 150 (the default level for SQL Server 2019), the query processor in the SQL Server engine can enhance performance through capabilities like batch-mode on row store, scalar UDF inlining,or table variable deferred compilation. 
+  - It can automatically correct memory-related query execution issues through memory grant feedback.
+  - https://techcommunity.microsoft.com/t5/Azure-Database-Support-Blog/Memory-Grant-Feedback-SQL-2019-new-feature-applied-to-Azure-SQL/ba-p/1020997
