@@ -24,7 +24,7 @@ while(!($connectionResult) -And ($logonAttempt -le 10))
 
     Start-Sleep -Seconds 30
 }
-
+$newServiceObjectiveName = "DW1000c"
 #command to programmatically pause an azure synapse analytics sql pool (aka sql data warehouse)
 Suspend-AzSqlDatabase -ResourceGroupName "my-rg-name" -ServerName "myservername" -DatabaseName "my-synapsesqldb-name"
 
@@ -32,7 +32,7 @@ Suspend-AzSqlDatabase -ResourceGroupName "my-rg-name" -ServerName "myservername"
 Resume-AzSqlDatabase -ResourceGroupName "my-rg-name" -ServerName "myservername" -DatabaseName "my-synapsesqldb-name"
 
 #command to programmatically scale an azure synapse analytics sql pool (aka sql data warehouse)
-Set-AzSqlDatabase -ResourceGroupName "my-rg-name" -ServerName "myservername" -DatabaseName "my-synapsesqldb-name" -RequestedServiceObjectiveName "DW1000c"
+Set-AzSqlDatabase -ResourceGroupName "my-rg-name" -ServerName "myservername" -DatabaseName "my-synapsesqldb-name" -RequestedServiceObjectiveName $newServiceObjectiveName
 ```
 4. Schedule your runbook https://docs.microsoft.com/en-us/azure/automation/shared-resources/schedules#to-create-a-new-schedule-in-the-azure-portal
 

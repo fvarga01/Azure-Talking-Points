@@ -50,6 +50,15 @@
   - [Azure Paired Regions](https://docs.microsoft.com/en-us/azure/best-practices-availability-paired-regions)
   - [Backup Storage Costs](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-automated-backups#storage-costs)
     - 100% of database size is provided at no extra charge
+- [Backup Integrity](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-automated-backups#how-does-microsoft-ensure-backup-integrity)
+  - On an ongoing basis, the [Azure SQL Database engineering team automatically tests the restore](https://azure.microsoft.com/en-us/blog/data-integrity-in-azure-sql-database/) of automated database backups of databases across the service. Upon restore, databases also receive integrity checks using DBCC CHECKDB. Any issues found during the integrity check will result in an alert to the engineering team.
+- [Long Term Backup Retention](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-long-term-backup-retention-configure)
+  - Up to 10 years for single db. Currently in public preview for managed instance
+- [Point In Time Restore](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-recovery-using-backups#point-in-time-restore). Restore a database to a point-in-time within the retention period. This operation will create a new database in the same server as the original database.
+- [Restore a deleted database](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-recovery-using-backups#deleted-database-restore). 	○ Restore a deleted database to the time it was deleted or any time within the retention period. The deleted database can only be restored in the same server where the original database was created.
+- [Export a Single DB Database](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-export). When you need to export a database for archiving or for moving to another platform, you can export the database schema and data to a BACPAC file. A BACPAC file is a ZIP file with an extension of BACPAC containing the metadata and data from the database. 
+- [Copy Only Backups](https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/copy-only-backups-sql-server?view=sql-server-ver15) are available in SQL Managed Instance
+- [Geo-Restore](https://docs.microsoft.com/en-us/azure/azure-sql/database/recovery-using-backups#geo-restore-by-using-the-azure-portal) allows you to restore a database to another geographical region.
 
 ### Maintenance
 - Azure automatically handles patching, backups, failure detection, underlying potential hardware, software or network failures, deploying bug fixes, failovers, database upgrades, and other maintenance tasks.
@@ -59,6 +68,12 @@
   - [Hot patching SQL Server Engine in Azure SQL Database](https://azure.microsoft.com/en-us/blog/hot-patching-sql-server-engine-in-azure-sql-database/)
 
 ### Migration
+- [Azure Database Migration Guide](https://datamigration.microsoft.com)
+- [Azure Database Migration Service](https://docs.microsoft.com/en-us/azure/dms/dms-overview) allows for online migrations
+  - [Migrate SQL Server to SQL Database Managed Instance Online using DMS](https://docs.microsoft.com/en-us/azure/dms/tutorial-sql-server-managed-instance-online)
+  - [Migrate SQL Server to SQL Database  single DB Online using DMS](https://docs.microsoft.com/en-us/azure/dms/tutorial-sql-server-azure-sql-online)
+- [Import a Database via BacPac](https://docs.microsoft.com/en-us/azure/azure-sql/database/database-import?tabs=azure-powershell)
+- [Restore a SQL Server Backup to SQL Managed Instance](https://docs.microsoft.com/en-us/azure/azure-sql/managed-instance/migrate-to-instance-from-sql-server#native-restore-from-url)
 - Sizing your database workload for SQL Managed Instance
   - This article discusses the [resource limits for ASDB MI](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-managed-instance-resource-limits#instance-level-resource-limits)
   - The easiest approach would be to use the [DTU calculator](http://dtucalculator.azurewebsites.net/). Managed instance only supports VCore (not DTU), but you can easily convert DTUs to vCores.
@@ -70,6 +85,8 @@
     - CPU: Processor - % Processor Time
     - Memory:    Memory: Available Megabytes,    SQL Server: Memory Manager: Total Server Memory (KB),    \SQLServer:Memory Manager\Target Server Memory (KB),    SQL Server Buffer Manager: Page Life Expectancy 
     - [SQL Server Performance Objects](https://docs.microsoft.com/en-us/sql/relational-databases/performance-monitor/use-sql-server-objects?view=sql-server-ver15#SQLServerPOs)
+- [Database Experimentation Assistant](https://www.microsoft.com/en-us/download/details.aspx?id=54090) is an A/B testing solution for SQL Server upgrades. It will assist in evaluating a targeted version of SQL for a given workload
+
 
 ## Single Instance
 
@@ -81,9 +98,14 @@
   - In the Azure portal, when the [Deny Public Network Access](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-connectivity-settings#deny-public-network-access) setting is set to Yes, only connections via private endpoints are allowed. When this setting is set to No, clients can connect using the private or public (vnet service) endpoint. 
 - [Authentication](https://docs.microsoft.com/en-us/azure/azure-sql/database/logins-create-manage)
   - SQL Authentication vs AAD Authentication
-  - Logins and Users
+  - Single DB supports DB level AAD Users
+  - An Azure AD administrator must be configured if you want to use Azure AD accounts to connect to SQL Database, SQL Managed Instance, or Azure Synapse
+  - [Only the administrator based on an Azure AD account can create the first Azure AD contained database user in a user database]( https://docs.microsoft.com/en-us/azure/sql-database/sql-database-aad-authentication-configure?view=sql-server-2017)
+  - [Azure AD server level principals (logins) and users are supported for SQL Managed Instance](https://docs.microsoft.com/en-us/azure/azure-sql/database/authentication-aad-overview).
 - Authorization
   - [Database Roles](https://docs.microsoft.com/en-us/sql/relational-databases/security/authentication-access/database-level-roles)
+- [Auditing for Azure SQL Database and Azure Synapse Analytics]( https://docs.microsoft.com/en-us/azure/azure-sql/database/auditing-overview)
+- [Azure SQL Managed Instance auditing](https://docs.microsoft.com/en-us/azure/azure-sql/managed-instance/auditing-configure)
 
 ### Business Continuity
 - [Failover group vs Geo-Replication](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-business-continuity#compare-geo-replication-with-failover-groups)
@@ -112,8 +134,12 @@
   - SQL Server 2019 includes built-in query processing capabilities called Intelligent Query Processing. By updating your database compatibility level to 150 (the default level for SQL Server 2019), the query processor in the SQL Server engine can enhance performance through capabilities like batch-mode on row store, scalar UDF inlining,or table variable deferred compilation. 
   - It can automatically correct memory-related query execution issues through memory grant feedback.
 
+### Scale: Data Replication
+- You can configure an Azure SQL Database as the push subscriber in a one-way transactional or snapshot replication [replication](https://docs.microsoft.com/en-us/azure/azure-sql/database/replication-to-sql-database) topology. The SQL Server acting as publisher and/or distributor can be an instance of SQL Server running on-premises, an Azure SQL Managed Instance, or an instance of SQL Server running on an Azure virtual machine in the cloud.
+- [SQL Data Sync](https://docs.microsoft.com/en-us/azure/azure-sql/database/sql-data-sync-data-sql-server-sql-database)is a service built on Azure SQL Database that lets you synchronize the data you select bi-directionally across multiple databases, both on-premises and in the cloud.
+
 ### Scale: Data Distribution + Partitioning
-- [Sharding](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-elastic-scale-introduction)
+- [Sharding](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-elastic-scale-introduction). Scale out databases in Azure SQL Database using the Elastic Database tools. Sharding is a technique to distribute large amounts of identically structured data across a number of independent databases. It is especially popular with cloud developers creating Software as a Service (SAAS) multi-tenant offerings for end customers or businesses. Sharding works best when every transaction in an application can be restricted to a single value of a sharding key. That ensures that all transactions are local to a specific database.
 - [Partitioned Indexed View](https://docs.microsoft.com/en-us/sql/relational-databases/views/create-indexed-views?redirectedfrom=MSDN&view=sql-server-ver15). Indexed views can also be created on a partitioned table, and can themselves be partitioned.
 - [Filtered Indexes](https://docs.microsoft.com/en-us/sql/relational-databases/indexes/create-filtered-indexes?view=sql-server-ver15)
 - Partitioned Tables and Indexes
@@ -133,3 +159,26 @@
   | Non-Partition Aligned (clustered index/heap is not partitioned + non-clustered indexes are partitioned)  | N | N |
 
   - [Walkthrough: Partitioned Table Demonstration](https://github.com/fvarga01/sample-code/blob/master/AzureSQLDatabase/DemoPartitionedTables.sql)
+
+## Managed Instance
+
+### Scale: Tuning
+- Throughput and IOPS in the General Purpose Tier [also depend on the file size](https://docs.microsoft.com/en-us/azure/azure-sql/managed-instance/resource-limits#file-io-characteristics-in-general-purpose-tier). If you notice high IO latency on some database file or you see that IOPS/throughput is reaching the limit, you might improve performance by increasing the file size.
+
+
+## Hyperscale
+- Time to resize compute is independent of the size of data
+- Decouple storage, compute, transaction logs
+- [Use](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-service-tier-hyperscale#who-should-consider-the-hyperscale-service-tier ) for VLDBs and when you need flexibility to scale compute/storage while maintaining many of the performance benefits of business critical (fast IOPS)
+- [Capabilities](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-service-tier-hyperscale#what-are-the-hyperscale-capabilities) include Constant time operations (backups, restores, scale), support for VLDBs, ability to provision one or more read-only/hot-standby nodes, and improved performance due to higher log throughput and faster transaction commit times
+- [Distributed Architecture](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-service-tier-hyperscale#distributed-functions-architecture)
+- Migration to Hyperscale tier is currently [one-way](https://docs.microsoft.com/en-us/azure/azure-sql/database/service-tier-hyperscale#upgrade-existing-database-to-hyperscale)
+- [Connect to READ replica](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-service-tier-hyperscale#connect-to-a-read-scale-replica-of-a-hyperscale-database)
+
+
+## Serverless
+- Automatically scales compute [based on workload demand](https://docs.microsoft.com/en-us/azure/azure-sql/database/serverless-tier-overview) and bills for the amount of compute used per second.
+- [When to use](https://docs.microsoft.com/en-us/azure/azure-sql/database/serverless-tier-overview#scenarios-well-suited-for-provisioned-compute)
+- [Autoscaling performance/responsiveness](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-serverless#scaling-responsiveness)
+- [Video: Serverless Architecture](https://youtu.be/2ykwUOfEPoU?t=578) shows 	three tiers (1) control plan manages connectivity and management ops (2) Backend tier (Data Plane) with database compute (3) Storage tier where files reside
+
