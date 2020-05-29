@@ -3,7 +3,8 @@
 - [Best practices for Azure readiness](https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/)
 
 ## EA Hierarchy
-- [EA Hierarchy](https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-setup-guide/organize-resources?tabs=AzureManagementGroupsAndHierarchy)
+- [EA Hierarchy](https://docs.microsoft.com/en-us/azure/cost-management-billing/manage/ea-portal-get-started#azure-enterprise-portal-hierarchy) and [Management Scope](https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-setup-guide/organize-resources?tabs=AzureManagementGroupsAndHierarchy)
+  - EA Portal is uses to create an Azure EA hierarchy with departments, accounts, and subscriptions.
   - Management Groups
     - Containers that help you manage access, policy, and compliance for multiple subscriptions. 
     - Can set RBAC +  policies at this level to be inherited by subscriptions
