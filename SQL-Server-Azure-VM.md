@@ -14,16 +14,16 @@
 
 ## [Backup](https://docs.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/backup-restore#backup-and-restore-options)
 
-### Manual
+### 1. Manual
 - Custom backup such as SQL Agent/PowerShell backup scripts or 3rd party SQL Server backup solution.
 - VLDB Backup options:
   - [File-Snapshot Backups for Database Files in Azure](https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/file-snapshot-backups-for-database-files-in-azure?view=sql-server-ver15). SQL Server File-snapshot backup uses Azure snapshots to provide nearly instantaneous backups and quicker restores for database files stored using the Azure Blob storage service. [Video demonstration](https://channel9.msdn.com/Blogs/Azure/File-Snapshot-Backups-Demo) of Azure File Snapshot Backups for SQL Server
   - [Back Up Files and Filegroups + Partitioning](https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/back-up-files-and-filegroups-sql-server?view=sql-server-ver15). When the database size and performance requirements make a full database backup impractical, you can create a file backup instead.
 
-### SQL IaaS Extension’s Automated Backup
+### 2. SQL IaaS Extension’s Automated Backup
 - SQL IaaS Extension’s [Automated Backup](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-backup-recovery#automated) feature. This feature must be managed and monitored at the individual VM level.
 
-### [Azure Backup](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-backup-recovery#azbackup)
+### [3. Azure Backup](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-backup-recovery#azbackup)
  - Allows you to manage multiple servers within one dashboard.
  - This short [video](https://www.youtube.com/watch?time_continue=4&v=wmbANpHos_E) gives a great overview of what this solution looks like
  - Zero-infrastructure backup: You do not have to manage backup servers or storage locations.
@@ -57,16 +57,16 @@
 
 ## Monitoring
 
-### Manual
+### 1. Manual
 - Custom monitoring such as SQL Agent/PowerShell scripts and 3rd party monitoring tools
 
-### Guest VM Azure Metrics (Currently in Preview)
+### 2. Guest VM Azure Metrics (Currently in Preview)
 - [Azure Diagnostics extension](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/diagnostics-extension-overview) is an agent in Azure Monitor that collects monitoring data from the guest operating system of Azure compute resources including virtual machines.
 - Collects guest metrics (typically time series/performance counter)  into Azure Monitor Metrics.
 - [Data which can be collected](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/diagnostics-extension-overview#data-collected)
 - It can send data to Azure Storage, Azure Monitor Metrics (Windows VM only) and Event Hubs.
 
-### Azure Monitor Logs (aka Azure Log Analytics)
+### 3. Azure Monitor Logs (aka Azure Log Analytics)
 - Uses the [Log Analytics agent](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/log-analytics-agent) (aka MicrosoftMonitoringAgent, MMA)
 - Collects data to a Log Analytics workspace (aka Azure Monitor Logs)
 - To ship SQL Server Audit logs to Azure Monitor Logs, you can choose to write audit logs to the Windows event Logs and then use the Log Analytics agent to collect the event logs. This approach is documented here
@@ -74,7 +74,7 @@
 - You can also [write custom logs to Azure Monitor Logs through the agent via custom data sources](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/data-sources-custom-logs) or manually through [REST API](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/data-collector-api).
 - [SQL Health Check solution](https://docs.microsoft.com/en-us/azure/azure-monitor/insights/sql-assessment#prerequisites) for Azure Monitor Logs (aka Log Analytics). This also relies on data collected by the Log Analytics agent (aka MicrosoftMonitoringAgent, MMA)
 
-### Security Monitoring
+### 4. Security Monitoring
 - [Advanced data security for SQL machines (Preview)](https://docs.microsoft.com/en-us/azure/security-center/security-center-iaas-advanced-data). Includes Advanced Threat Protection and Vulnerability Assessment
 
 ### Reference: Key SQL Server Performance Counters
