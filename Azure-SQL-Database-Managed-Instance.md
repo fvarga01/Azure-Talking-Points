@@ -1,5 +1,8 @@
 # Azure SQL Database Managed Instance
 
+## Single and Managed Instance Shared Concepts
+- see [Azure SQL Database - Single and Managed Instance Shared Concepts](/Azure-SQL-Database.md#single-and-managed-instance-shared-concepts)
+
 ## Provision
   - Azure SQL Database managed instance resource limits https://docs.microsoft.com/en-us/azure/sql-database/sql-database-managed-instance-resource-limits
     - Gen4 (SSD) vs Gen5 (NVMe SSD). Gen4 hardware is being phased out.
@@ -26,4 +29,11 @@
 - Unless a public endpoint has been configured, Managed Instance can be accessed only through a private IP address. So, in order to access it from Azure App Service you first need to make a connection between the application and the Managed Instance VNet.
   - Connect your application to Azure SQL Database managed instance https://docs.microsoft.com/en-us/azure/sql-database/sql-database-managed-instance-connect-app.
   - Connectivity architecture for a managed instance in Azure SQL Database https://docs.microsoft.com/en-us/azure/sql-database/sql-database-managed-instance-connectivity-architecture
+
+
+
+## Scale: Tuning
+- Throughput and IOPS in the General Purpose Tier [also depend on the file size](https://docs.microsoft.com/en-us/azure/azure-sql/managed-instance/resource-limits#file-io-characteristics-in-general-purpose-tier). If you notice high IO latency on some database file or you see that IOPS/throughput is reaching the limit, you might improve performance by increasing the file size.
+
+
  

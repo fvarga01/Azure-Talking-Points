@@ -1,6 +1,6 @@
 # Azure SQL Database
 
-## Single and Managed Instance
+## Single and Managed Instance Shared Concepts
 
 ### Pricing
 - [Azure Hybrid Benefit Savings Calculator](https://azure.microsoft.com/en-us/pricing/hybrid-benefit/#sql-database)
@@ -161,10 +161,7 @@
   - [Walkthrough: Partitioned Table Demonstration](https://github.com/fvarga01/sample-code/blob/master/AzureSQLDatabase/DemoPartitionedTables.sql)
 
 ## Managed Instance
-
-### Scale: Tuning
-- Throughput and IOPS in the General Purpose Tier [also depend on the file size](https://docs.microsoft.com/en-us/azure/azure-sql/managed-instance/resource-limits#file-io-characteristics-in-general-purpose-tier). If you notice high IO latency on some database file or you see that IOPS/throughput is reaching the limit, you might improve performance by increasing the file size.
-
+see [Azure SQL Database Managed Instance](/Azure-SQL-Database-Managed-Instance.md)
 
 ## Hyperscale
 - Time to resize compute is independent of the size of data
