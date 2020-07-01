@@ -24,7 +24,7 @@ The majority of the content is geared for Azure Cloud Solution Architects in the
 ## Data
 1.  Relational
     - [Azure SQL Database](/Azure-SQL-Database.md)
-    - SQL Server on Azure VM (IaaS)
+    - [SQL Server on Azure VM (IaaS)](/SQL-Server-Azure-VM.md)
     - [Azure SQL Database Managed Instance](/Azure-SQL-Database-Managed-Instance.md)
     - [Azure Synapse Analytics SQL Pool (formerly Azure SQL Data Warehouse)](/Azure-Synapse-Analytics-SQLPool.md)
     - Azure Analysis Services
