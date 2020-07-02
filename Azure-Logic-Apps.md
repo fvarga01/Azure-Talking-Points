@@ -10,6 +10,7 @@
 - Every logic app workflow starts with a trigger, which fires when a specific event happens, or when new available data meets specific criteria. 
 - Actions are all the steps that happen after the trigger.
 - You can use prebuilt Microsoft-managed connectors that are designed to connect, access, and work with your data or create your own custom connectors.
+- Logic Apps offers [hundreds of connectors](https://docs.microsoft.com/en-us/connectors/connector-reference/)
 - Sample Walkthrough
   - Create logic app resource https://docs.microsoft.com/en-us/azure/logic-apps/quickstart-create-first-logic-app-workflow
   - At creation, you can select an Azure region or Logic App ISE if one has been created
