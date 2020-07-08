@@ -10,7 +10,8 @@
 - Steps to [install the SQL Resource Provider](https://docs.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/sql-vm-resource-provider-register?tabs=azure-cli%2Cpowershell#azure-portal). Note: This may restart the SQL Server service.
 - Steps to [install SQL Server IaaS Agent Extension in Full mode](https://docs.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/sql-server-iaas-agent-extension-automate-management#installation). Note: This may restart the SQL Server service.
 - Registering a VM with the SQL Resource provider automatically installs the SQL Server IaaS extension. But the reverse is not true. So, installing the SQL Server IaaS extension alone does not automatically register the VM with the SQL Resource Provider.
-
+- [Bulk Register](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/sql-vm-resource-provider-bulk-register) multiple SQL virtual machines in Azure with the SQL VM resource provider.
+  - The Register-SqlVMs cmdlet can be used to register all virtual machines in a given list of subscriptions, resource groups, or a list of specific virtual machines. The cmdlet will register the virtual machines in lightweight management mode, and then generate both a report and a log file.
 
 ## [Backup](https://docs.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/backup-restore#backup-and-restore-options)
 
