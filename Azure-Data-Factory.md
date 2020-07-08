@@ -33,13 +33,13 @@
 - [Parameterize linked services](https://docs.microsoft.com/en-us/azure/data-factory/parameterize-linked-services) in Azure Data Factory
 - You can copy data from a [REST](https://docs.microsoft.com/en-us/azure/data-factory/connector-rest) endpoint by using Azure Data Factory
   - REST connector specifically supports copying data from RESTful APIs
-- Code: Transform un-staged data with the Copy Activity
-  - When copying data into Azure SQL Database or SQL Server, you can configure the SqlSink in the copy activity to invoke a stored procedure
-  - Steps to [invoke a stored procedure from a SQL sink](https://docs.microsoft.com/en-us/azure/data-factory/connector-azure-sql-database#invoke-a-stored-procedure-from-a-sql-sink)
 - External Transformations (code): Transform staged data
   - You can hand-code transformations and manage the external compute environment yourself.
   - [Transform data](https://docs.microsoft.com/en-us/azure/data-factory/transform-data) in Azure Data Factory
   - [Spark activity](https://docs.microsoft.com/en-us/azure/data-factory/tutorial-transform-data-spark-portal)
+  - Transform un-staged data with the Stored Procedure Activity/Stored Procedure sink of the Copy Activity
+    - When copying data into Azure SQL Database or SQL Server, you can configure the SqlSink in the copy activity to invoke a stored procedure
+    - Steps to [invoke a stored procedure from a SQL sink](https://docs.microsoft.com/en-us/azure/data-factory/connector-azure-sql-database#invoke-a-stored-procedure-from-a-sql-sink)
 - Native Transformations(Codeless): Transform data with the [Mapping Data Flow](https://docs.microsoft.com/en-us/azure/data-factory/concepts-data-flow-overview)
   - Allows you to build visual, code-free, data transformations within ADF
   - Supports flexible schemas. You can derive columns using template expression patterns based on name and type matching instead of defining static field names.
@@ -50,6 +50,10 @@
     - [Joining Data](https://docs.microsoft.com/en-us/azure/data-factory/data-flow-join) + [Joining Data Video](https://www.youtube.com/watch?v=zukwayEXRtg)
     - [SCD Type 1 with Mapping Data Flows](https://www.youtube.com/watch?v=Rz2zx5GRbrA)
     - [Using Parameters](https://docs.microsoft.com/en-us/azure/data-factory/parameters-data-flow) +  [Using Parameters Video](https://www.youtube.com/watch?v=vpuuQcFojt8)
+- Native Transformations(Codeless): Transform data with the Wrangling Data Flow
+  - [Overview](https://docs.microsoft.com/en-us/azure/data-factory/wrangling-data-flow-overview) + [video](https://www.youtube.com/watch?v=LKenBZYZaLA)
+  - Use Power Query technology to prepare, enrich, and shape data. Making data preparation faster, easier, and accessible to everyone.
+  - [Tutorial](https://docs.microsoft.com/en-us/azure/data-factory/wrangling-data-flow-tutorial)
 
 ## Connect to On-Premises
 - [Azure Integration Runtime](https://docs.microsoft.com/en-us/azure/data-factory/concepts-integration-runtime#integration-runtime-types) supports connecting to data stores and compute services with public accessible endpoints. 
