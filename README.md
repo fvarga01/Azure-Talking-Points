@@ -11,8 +11,8 @@ The majority of the content is geared for Azure Cloud Solution Architects in the
 - https://github.com/fvarga01/sample-code
 
 
-## Monthly Microsoft Data and AI News
-- Latest Microsoft Data and AI newsletter: [May 2020](/Microsoft-Data-and-AI-News/2020/Microsoft-Data-and-AI-News-May-2020.pdf)
+## Microsoft Data and AI News
+- Latest Microsoft Data and AI newsletter: [October 2020](/Microsoft-Data-and-AI-News/2020/Microsoft-Data-and-AI-News-October-2020.pdf)
 - SQL Server Updated and Lessons Learned - Blog Archives https://docs.microsoft.com/en-us/archive/blogs/sqlupdates/
 
   
