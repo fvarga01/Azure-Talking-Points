@@ -12,14 +12,15 @@ The majority of the content is geared for Azure Cloud Solution Architects in the
 
 
 ## Microsoft Data and AI News
-- Latest Microsoft Data and AI newsletter: [October 2020](/Microsoft-Data-and-AI-News/2020/Microsoft-Data-and-AI-News-October-2020.pdf)
+- __Latest__ Microsoft Data and AI newsletter: __[April 2021]__(/Microsoft-Data-and-AI-News/2021/ Microsoft-Data-and-AI-News-April-2021.pdf)
 - SQL Server Updated and Lessons Learned - Blog Archives https://docs.microsoft.com/en-us/archive/blogs/sqlupdates/
 
   
 ## AI and IoT
-1. Internet of Things (IoT)
-2. Azure Machine Learning (AML)
-3. Automated Machine Learning (AutoML)
+1. Automated Machine Learning (AutoML)
+2. Internet of Things (IoT)
+3. Azure Machine Learning (AML)
+4. Cognitive Services
 
 ## Data
 1.  Relational
@@ -60,7 +61,8 @@ The majority of the content is geared for Azure Cloud Solution Architects in the
 ## Infrastructure and Management
 1. [Azure Governance](/Azure-Governance.md)
 2. [Azure Monitor](/Azure-Monitor.md)
-1. [Tools](/Tools.md)
+3. [Tools](/Tools.md)
+4. [Devops for SQL Databases](/DevopsForSQLDatabases.md)
 
 ## Industry - Healthcare
 - [Genomics On Azure](/Genomics-On-Azure.md)
