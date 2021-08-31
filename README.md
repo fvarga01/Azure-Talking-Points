@@ -12,7 +12,7 @@ The majority of the content is geared for Azure Cloud Solution Architects in the
 
 
 ## Microsoft Data and AI News
-- __Latest__ Microsoft Data and AI newsletter: __[July 2021](/Microsoft-Data-and-AI-News/2021/Microsoft-Data-and-AI-News-July-2021.pdf)__
+- __Latest__ Microsoft Data and AI newsletter: __[August 2021](/Microsoft-Data-and-AI-News/2021/Microsoft-Data-and-AI-News-August-2021.pdf)__
 - SQL Server Updated and Lessons Learned - Blog Archives https://docs.microsoft.com/en-us/archive/blogs/sqlupdates/
 
   
